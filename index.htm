@@ -17,6 +17,21 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .custom_cursor{
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            mix-blend-mode: difference;
+            transition: all 0.3s linear;
+        }
+    </style>
 </head>
 
 <body>
@@ -46,9 +61,12 @@
 
 
     <main>
+
+        <div class="custom_cursor"></div>
+
         <section class="project_container">
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="project_box">
                             <h3><a href="Projects/add-friend/index.htm" target="_blank">Add Friend Button</a></h3>
@@ -129,6 +147,12 @@
                             <h3><a href="Projects/vote checker/index.html" target="_blank">Voter Checker</a></h3>
                         </div>
                     </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="project_box">
+                            <h3><a href="Projects/instagram-stories/index.htm" target="_blank">Instagram Stories</a></h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -154,10 +178,17 @@
             let showYear = document.getElementById('year');
 
             let year = new Date().getFullYear();
+            showYear.innerHTML = year;
 
-            console.log(year)
 
-            showYear.innerHTML = year
+            //Custom Cursor
+
+            let custom_cursor = document.querySelector('.custom_cursor');
+
+            document.body.addEventListener('mousemove',(val)=>{
+                custom_cursor.style.left = val.x + 'px';
+                custom_cursor.style.top = val.y + 'px';
+            })
         </script>
 </body>
 
